@@ -1,59 +1,87 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head> 
-     <meta charset="UTF-8"> 
-     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-     <title>Mon Mini Magic Garden</title>
-  <style>
-    /* On habille toute la page */
-    body {
-        background-color: #f2f8e1; /* vert pastel  */
-        font-family: 'Comic Sans MS', 'Quicksand', sans-serif; /* Une police d'écriture arrondie */
-        text-align: center; /* On centre tous les textes */
-        color: #5d4037; /* Un texte marron foncé  */
-    }
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Mon Mini Magic Garden</title>
+    
+    <style>
+        /* 1. On habille toute la page */
+        body {
+            background-color: #f2f8e1; /* vert pastel */
+            font-family: 'Comic Sans MS', 'Quicksand', sans-serif; /* Police arrondie */
+            text-align: center; /* On centre tous les textes */
+            color: #5d4037; /* Texte marron foncé */
+        }
 
-    /* parcelles de terre */
-    .parcelle {
-        width: 100px;           /* Largeur de la boîte */
-        height: 100px;          /* Hauteur de la boîte */
-        background-color: #d7ccc8; /* couleur terre */
-        border-radius: 25px;    /* bords arrondis */
-        display: inline-block;  /* Pour qu'elles se mettent côte à côte */
-        margin: 10px;           /* On laisse de l'espace pour qu'elles respirent */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* petite ombre discrète */
-        cursor: pointer;        /* Pour que la souris se transforme en petite main quand on passe dessus */
-    }
-    /* 3. On organise le jardin */
-    #garden {
-        display: grid; /* On active le mode "grille" */
-        grid-template-columns: repeat(4, 100px); /* On veut 4 colonnes de 100 pixels de large */
-        gap: 20px; /* On crée un espace régulier entre chaque parcelle */
-        justify-content: center; /* On centre tout le potager au milieu de la page */
-        margin-top: 30px; /* On le décolle un peu du score en haut */
-    }
-</style>
+        /* 2. Le style des parcelles de terre */
+        .parcelle {
+            width: 100px;           /* Largeur */
+            height: 100px;          /* Hauteur */
+            background-color: #d7ccc8; /* Couleur terre douce */
+            border-radius: 25px;    /* Bords arrondis  */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Petite ombre */
+            cursor: pointer;        /* Curseur en forme de main */
+            
+            /* LIGNES AJOUTÉES : Pour que la graine soit grande et bien au centre ! */
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 3. On organise le jardin en grille */
+        #garden {
+            display: grid; /* Mode grille activé */
+            grid-template-columns: repeat(4, 100px); /* 4 colonnes de 100px */
+            gap: 20px; /* Espace entre les cases */
+            justify-content: center; /* On centre la grille au milieu de l'écran */
+            margin-top: 30px; /* Espace avec le score en haut */
+        }
+    </style>
 </head>
 <body>
-     <h1>Mon Mini Magic Garden 🪴</h1>
-     
-     <div id="score">Pièces : 20 💰</div>
+    <h1>Mon Mini Magic Garden 🪴</h1>
+    
+    <div id="score">Pièces : <span id="valeur-score">20</span> 💰</div>
 
-     <div id="garden"> 
-         <div class="parcelle" onclick="planterGraine(this)"></div>          
-         <div class="parcelle" onclick="planterGraine(this)"></div> 
-         <div class="parcelle" onclick="planterGraine(this)"></div> 
-         <div class="parcelle" onclick="planterGraine(this)"></div> 
-         <div class="parcelle" onclick="planterGraine(this)"></div> 
-         <div class="parcelle" onclick="planterGraine(this)"></div> 
-         <div class="parcelle" onclick="planterGraine(this)"></div> 
-     </div>
-<script>
-     let score=20; //mémoire du jeu
-     function planterGraine(parcelleCliquee){ //parcelleCLiquee représente la case exacte qu'on a touchée
-          parcelleCliquee.innerHTML="🌱";//on modifie le contenu HTML pour mettre une graine
-     }
-</script>
+    <div id="garden"> 
+        <div class="parcelle" onclick="planterGraine(this)"></div>  
+        <div class="parcelle" onclick="planterGraine(this)"></div> 
+        <div class="parcelle" onclick="planterGraine(this)"></div> 
+        <div class="parcelle" onclick="planterGraine(this)"></div> 
+        <div class="parcelle" onclick="planterGraine(this)"></div> 
+        <div class="parcelle" onclick="planterGraine(this)"></div> 
+        <div class="parcelle" onclick="planterGraine(this)"></div> 
+        <div class="parcelle" onclick="planterGraine(this)"></div> 
+    </div>
+
+    <script>
+        let score = 20; // La mémoire du jeu
+
+        function planterGraine(parcelleCliquee) { 
+            
+            // 1. On vérifie si la case est vide
+            if (parcelleCliquee.innerHTML === "") { // le === c'est une comparaison stricte, on vérifie si c'est le même type et la même valeur
+                
+                // 2. On vérifie si on a au moins 2 pièces
+                if (score >= 2) {
+                    
+                    // On plante !
+                    parcelleCliquee.innerHTML = "🌱";
+                    
+                    // On enlève 2 pièces de notre mémoire
+                    score = score - 2;
+                    
+                    // On met à jour le chiffre à l'écran
+                    document.getElementById("valeur-score").innerText = score;
+                    
+                } else {
+                    // Message d'erreur si on a plus d'argent
+                    alert("Tu n'as plus assez de pièces pour planter !");
+                }
+            }
+        }
+    </script>
 </body>
 </html>
-
