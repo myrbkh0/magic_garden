@@ -40,15 +40,20 @@
      <div id="score">Pièces : 20 💰</div>
 
      <div id="garden"> 
-         <div class="parcelle"></div> 
-         <div class="parcelle"></div> 
-         <div class="parcelle"></div> 
-         <div class="parcelle"></div> 
-         <div class="parcelle"></div> 
-         <div class="parcelle"></div> 
-         <div class="parcelle"></div> 
-         <div class="parcelle"></div> 
+         <div class="parcelle" onclick="planterGraine(this)"></div>          
+         <div class="parcelle" onclick="planterGraine(this)"></div> 
+         <div class="parcelle" onclick="planterGraine(this)"></div> 
+         <div class="parcelle" onclick="planterGraine(this)"></div> 
+         <div class="parcelle" onclick="planterGraine(this)"></div> 
+         <div class="parcelle" onclick="planterGraine(this)"></div> 
+         <div class="parcelle" onclick="planterGraine(this)"></div> 
      </div>
+<script>
+     let score=20; //mémoire du jeu
+     function planterGraine(parcelleCliquee){ //parcelleCLiquee représente la case exacte qu'on a touchée
+          parcelleCliquee.innerHTML="🌱";//on modifie le contenu HTML pour mettre une graine
+     }
+</script>
 </body>
 </html>
 
