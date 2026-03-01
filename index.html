@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head> 
+     <meta charset="UTF-8"> 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+     <title>Mon Mini Magic Garden</title>
+  <style>
+    /* On habille toute la page */
+    body {
+        background-color: #f2f8e1; /* vert pastel  */
+        font-family: 'Comic Sans MS', 'Quicksand', sans-serif; /* Une police d'écriture arrondie */
+        text-align: center; /* On centre tous les textes */
+        color: #5d4037; /* Un texte marron foncé  */
+    }
+
+    /* parcelles de terre */
+    .parcelle {
+        width: 100px;           /* Largeur de la boîte */
+        height: 100px;          /* Hauteur de la boîte */
+        background-color: #d7ccc8; /* couleur terre */
+        border-radius: 25px;    /* bords arrondis */
+        display: inline-block;  /* Pour qu'elles se mettent côte à côte */
+        margin: 10px;           /* On laisse de l'espace pour qu'elles respirent */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* petite ombre discrète */
+        cursor: pointer;        /* Pour que la souris se transforme en petite main quand on passe dessus */
+    }
+</style>
+</head>
+<body>
+     <h1>Mon Mini Magic Garden 🪴</h1>
+     
+     <div id="score">Pièces : 20 💰</div>
+
+     <div id="garden"> 
+         <div class="parcelle"></div> 
+         <div class="parcelle"></div> 
+         <div class="parcelle"></div> 
+         <div class="parcelle"></div> 
+         <div class="parcelle"></div> 
+         <div class="parcelle"></div> 
+     </div>
+</body>
+</html>
+
