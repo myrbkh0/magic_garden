@@ -24,6 +24,14 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* petite ombre discrète */
         cursor: pointer;        /* Pour que la souris se transforme en petite main quand on passe dessus */
     }
+    /* 3. On organise le jardin */
+    #garden {
+        display: grid; /* On active le mode "grille" */
+        grid-template-columns: repeat(4, 100px); /* On veut 4 colonnes de 100 pixels de large */
+        gap: 20px; /* On crée un espace régulier entre chaque parcelle */
+        justify-content: center; /* On centre tout le potager au milieu de la page */
+        margin-top: 30px; /* On le décolle un peu du score en haut */
+    }
 </style>
 </head>
 <body>
@@ -32,6 +40,8 @@
      <div id="score">Pièces : 20 💰</div>
 
      <div id="garden"> 
+         <div class="parcelle"></div> 
+         <div class="parcelle"></div> 
          <div class="parcelle"></div> 
          <div class="parcelle"></div> 
          <div class="parcelle"></div> 
